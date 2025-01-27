@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import "./Homepage.css";
-import Header from "../Header/Header";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
@@ -28,17 +27,21 @@ const App = () => {
       },
       { threshold: 0.5 } // Trigger when 50% of the card is visible
     );
-
-    cardRefs.current.forEach((card) => {
+  
+    // Store the current references in a variable
+    const currentRefs = cardRefs.current;
+  
+    currentRefs.forEach((card) => {
       if (card) observer.observe(card);
     });
-
+  
     return () => {
-      cardRefs.current.forEach((card) => {
+      currentRefs.forEach((card) => {
         if (card) observer.unobserve(card);
       });
     };
   }, []);
+  
 
   const cardData = [
     {
