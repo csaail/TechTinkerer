@@ -1,0 +1,13 @@
+.scroll-text {
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    transform: rotate(90deg);
+    font-size: 10px;
+    font: 'Montserrat';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    z-index: 3; /* Ensure it stays on top */
+  }
+  

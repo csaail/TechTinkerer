@@ -1,0 +1,213 @@
+.pcb-design-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(
+      circle at top,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.6) 40%,
+      rgba(0, 0, 0, 0.4) 100%
+    ),
+    #f9f9f9;
+  position: relative;
+  opacity: 0;
+  transform: scale(1.1); /* Initial slight zoom */
+  transition: opacity 2s ease, transform 2s ease; /* Smooth fade and zoom */
+}
+
+.pcb-design-page.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Diagonal overlay */
+.pcb-design-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  z-index: 1;
+  transform: skewX(-30deg);
+  animation: slide-in 3s ease-in-out forwards; /* Diagonal slide animation */
+}
+
+@keyframes slide-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+
+/* Main container styles */
+.container {
+  display: flex;
+  max-width: 1200px;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative; /* Above overlay */
+  z-index: 2;
+}
+
+/* Right content styles */
+.content {
+  width: 50%;
+  color: #333;
+}
+
+.header {
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  animation: fade-slide-in 1s ease-out 1s forwards; /* Fade and slide-in */
+  opacity: 0;
+  transform: translateY(20px);
+  text-align: center; /* Center the text horizontally */
+  margin: 0 auto; /* Center the header within its container */
+}
+
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  animation: fade-slide-in 1s ease-out 1.2s forwards; /* Staggered animation */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.textanim p {
+  font-size: 1rem;
+  font-weight: 700;
+  position: relative;
+  overflow: hidden;
+  animation: fade-slide-in 1s ease-out 1.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.textanim p:nth-child(1) {
+  animation-delay: 1.5s;
+}
+.textanim p:nth-child(2) {
+  animation-delay: 1.7s;
+}
+.textanim p:nth-child(3) {
+  animation-delay: 1.9s;
+}
+.textanim p:nth-child(4) {
+  animation-delay: 2.1s;
+}
+
+@keyframes fade-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+img {
+  width: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.magnify {
+  position: relative;
+  width: 500px;
+  height: auto;
+  cursor: none;
+}
+
+.pcb-image {
+  width: 100%;
+  display: block;
+}
+
+.glass {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 16px black;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .pcb-design-page {
+    flex-direction: column;
+    padding: 20px;
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .textanim p {
+    font-size: 0.9rem;
+  }
+
+  .magnify {
+    width: 100%; /* Adjust magnify container for smaller screens */
+    max-width: 300px;
+  }
+
+  .glass {
+    width: 100px; /* Reduce size of magnifying glass */
+    height: 100px;
+  }
+
+  .pcb-image {
+    border-radius: 8px;
+    max-width: 300px; /* Adjust image size for mobile */
+    box-shadow: none; /* Remove shadow for cleaner look */
+  }
+}

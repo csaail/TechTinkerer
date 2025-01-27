@@ -1,0 +1,129 @@
+.header {
+  position: fixed; /* Ensures the header stays on top even when scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 1001;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+.logo {
+  font-size: 1.6rem;
+  padding-left: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.logo::before {
+  content: '/';
+  color: #ff3366; /* Set the color of the slash */
+  padding-right: 5px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li {
+  display: inline-flex;
+  padding-right: 20px;
+  align-items: center;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+  margin-right: 10px;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* New container to group menu text and hamburger */
+.menu-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Ensures the entire container has a clickable cursor */
+}
+
+.hamburger{
+  color: white;
+}
+
+/* Apply hover effect to the entire menu-container */
+.menu-container:hover a,
+.menu-container:hover .hamburger {
+  color: #ff3366; /* Change color of Menu text and Hamburger icon together */
+}
+
+/* If using SVG path for hamburger icon, also apply stroke change on hover */
+.menu-container:hover .hamburger svg path {
+  stroke: #ff3366;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  clip-path: circle(150% at 100% 0%);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.close span {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.close:hover span {
+  color: #ff3366;
+}
+
+
+.menu-overlay.closing {
+  animation: circularCollapse 0.8s forwards ease-in-out;
+}
+
+@keyframes circularCollapse {
+  0% {
+    clip-path: circle(150% at 100% 0%);
+  }
+  100% {
+    clip-path: circle(0% at 100% 0%);
+  }
+}

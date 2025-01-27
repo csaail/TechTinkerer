@@ -1,0 +1,798 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+  
+  /* First div Styling */
+  .first-div {
+    position: fixed; /* Stays fixed on the screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: url('../../../assets/slmmy.jpeg') center/cover no-repeat;
+    z-index: 1; /* Ensure it's below the second div */
+  }
+  
+  .first-div .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust darkness */
+  }
+  
+  .first-div .content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    margin-left: 15%; /* Keep this to align it to the left */
+    max-width: 600px;
+    color: white;
+  
+    /* Centering the text vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; /* Ensure it takes full viewport height */
+  }
+  
+  .first-div .content h1 {
+    font-size: 10rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .first-div .content p {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding-left: 10%;
+    letter-spacing: 0.1rem;
+  }
+  
+  .first-div .slash {
+    color: #ff3366;
+    padding: 0 5px;
+  }
+  
+
+
+/* General Styling for smaller screens */
+@media (max-width: 1024px) {
+  .first-div {
+    background-size: cover; /* Ensure the background image covers the section */
+    background-position: center; /* Keep the image centered */
+  }
+
+  .first-div .content h1 {
+    font-size: 8rem; /* Reduce font size for tablets */
+  }
+
+  .first-div .content p {
+    font-size: 1rem; /* Adjust paragraph font size */
+    padding-left: 5%; /* Reduce padding */
+  }
+
+  .first-div .content {
+    margin-left: 10%; /* Adjust left margin */
+  }
+}
+
+/* For smaller tablets and mobile screens */
+@media (max-width: 768px) {
+  .first-div {
+    background-size: contain; /* Adjust background to fit within container */
+    background-position: top center; /* Align the image to the top and center */
+  }
+
+  .first-div .content h1 {
+    font-size: 6rem; /* Further reduce font size */
+  }
+
+  .first-div .content p {
+    font-size: 0.9rem; /* Smaller font for paragraphs */
+    padding-left: 5%; /* Maintain smaller padding */
+  }
+
+  .first-div .content {
+    margin-left: 8%; /* Adjust left margin for smaller devices */
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+  .first-div {
+    background-size: 100%; /* Make the background fit the entire width */
+    background-position: top center; /* Align the image for mobile screens */
+  }
+
+  .first-div .content h1 {
+    font-size: 4rem; /* Smaller font size for mobile */
+  }
+
+  .first-div .content p {
+    font-size: 0.8rem; /* Compact paragraph font size */
+    padding-left: 3%; /* Further reduce padding */
+  }
+
+  .first-div .content {
+    margin-left: 5%; /* Minimize margin for small screens */
+    max-width: 90%; /* Restrict content width */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .first-div .content h1 {
+    font-size: 6rem; /* Further reduce font size for smaller tablets */
+  }
+
+  .first-div .content p {
+    font-size: 0.9rem; /* Smaller font for paragraphs */
+    padding-left: 5%; /* Reduce padding further */
+  }
+
+  .first-div .content {
+    margin-left: 8%; /* Adjust left margin */
+  }
+
+  .first-div {
+    height: 100vh; /* Ensure it still covers full viewport */
+    background-size: cover; /* Ensure the image scales properly */
+  }
+}
+
+@media (max-width: 480px) {
+  .first-div .content h1 {
+    font-size: 4rem; /* Font size for mobile screens */
+  }
+
+  .first-div .content p {
+    font-size: 0.8rem; /* Smaller font for better readability */
+    padding-left: 3%; /* Further reduce padding */
+  }
+
+  .first-div .content {
+    margin-left: 5%; /* Adjust left margin for mobile */
+    max-width: 90%; /* Restrict content width */
+  }
+
+  .first-div {
+    background-position: top center; /* Adjust background position for smaller screens */
+  }
+}
+
+
+
+
+
+
+
+
+/* Second div Styling */
+.second-div {
+    position: relative;
+    margin-top: 100vh; /* Start scrolling below the first div */
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    backdrop-filter: blur(10px); /* Apply a blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Optional: a subtle border for the glass effect */
+    z-index: 2; /* Layer it above the first div */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Grid layout for cards */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 30px; /* Space between cards */
+    margin-top: 2rem;
+}
+  
+/* Card Styling */
+.card {
+  color: var(--clr-neutral-100);
+  background-image: url(https://media.contentapi.ea.com/content/dam/eacom/images/2020/09/ea-featured-image-ea-desktop-beta.jpg.adapt.crop191x100.1200w.jpg);
+  background-size: cover;
+  padding: 10rem 0 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: transform 500ms ease;
+}
+  
+.card:hover,
+.card:focus-within {
+  transform: scale(1.05); /* Enlarge slightly */
+}
+
+/* Card content */
+.card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(20 0% 0% / 0.3) 20%,
+    hsl(0 0% 0% / 1)
+  );
+  transform: translateY(65%);
+  transition: transform 500ms ease, opacity 500ms linear;
+}
+
+.card:hover .card-content,
+.card:focus-within .card-content {
+  transform: translateY(0);
+  transition-delay: 500ms;
+}
+
+/* Title animation */
+.card-title {
+  position: relative;
+  width: max-content;
+  margin-bottom: 3rem; /* Adds space below the title */
+}
+
+
+.card-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: calc(100% + var(--padding));
+  left: calc(var(--padding) * -1);
+  bottom: -2px;
+  background: var(--clr-accent-400);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 500ms ease;
+}
+
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+  transform: scaleX(1);
+}
+
+/* Button Styling */
+.button {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-neutral-900);
+  background-color: var(--clr-accent-400);
+  padding: 0.5em 1.25em;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--clr-neutral-100);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr; /* 1 column for very small screens */
+  }
+}
+
+
+/* Scoped to the container with class `.themed-container` */
+.themed-container {
+  z-index: 2;
+  position: relative;
+  --clr-neutral-900: hsl(207, 19%, 9%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+  --clr-accent-400: #ff3366;
+}
+  
+.themed-container .card {
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-900);
+}
+
+.themed-container .button {
+  background-color: var(--clr-accent-400);
+  color: var(--clr-neutral-900);
+}
+
+.themed-container .button:hover {
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-neutral-900);
+}
+
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* General Styling for smaller screens */
+@media (max-width: 1024px) {
+  .second-div {
+    height: auto; /* Allow height to adjust based on content */
+    margin-top: 90vh; /* Slightly reduce margin-top for better spacing */
+    padding: 2rem; /* Add padding for spacing */
+  }
+  .card-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 20px; /* Space between cards */
+  }
+
+  .card {
+    padding: 6rem 0 0; /* Adjust padding for card content */
+  }
+
+}
+
+@media (max-width: 768px) {
+  .second-div {
+    margin-top: 85vh; /* Reduce margin for smaller devices */
+    padding: 1rem; /* Add more compact padding */
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 column for smaller tablets */
+    gap: 15px; /* Reduce gap further */
+  }
+
+  .card {
+    padding: 6rem 0 0; /* Further adjust card padding */
+  }
+
+  .card-content {
+    transform: translateY(70%); /* Adjust content position */
+  }
+}
+
+@media (max-width: 480px) {
+  .second-div {
+    margin-top: 80vh; /* Adjust margin for mobile devices */
+    padding: 1rem; /* Compact padding for smaller screens */
+  }
+
+  .card-grid {
+    .card-grid {
+      grid-template-columns: 1fr; /* Ensure single column layout */
+      gap: 15px; /* Reduce gap for compact design */
+    }
+  
+    .card {
+      padding: 4rem 0 0; /* Compact padding for mobile devices */
+      font-size: 0.9rem; /* Reduce font size for better readability */
+    }
+  
+    .card-title {
+      margin-bottom: 1.5rem; /* Adjust spacing below title */
+      font-size: 1.2rem; /* Reduce title font size */
+    }
+  
+    .button {
+      padding: 0.4em 1em; /* Compact button padding */
+      font-size: 0.9rem; /* Smaller font size for buttons */
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* About Me Section */
+.about-me-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    background-color: #f9f9f9;
+    height: 100vh; /* Ensure it's visible and takes full viewport height */
+    position: relative;
+    z-index: 2; /* Ensure it layers above previous sections */
+    background: radial-gradient(
+        circle at top,
+        rgba(255, 255, 255, 0.8) 0%, /* Bright center light */
+        rgba(255, 255, 255, 0.6) 40%, /* Softer glow */
+        rgba(0, 0, 0, 0.4) 100% /* Darker edges */
+    ),
+    #f9f9f9; /* Fallback background color */
+}
+
+
+.about-me-content {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem; /* Adds space between flex items */
+    align-items: center; /* Vertically centers the child items */
+}
+
+  
+  .about-me-image {
+    flex: 1;
+    max-width: 35%; /* Proportional width */
+}
+
+  
+  .about-me-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .about-me-text {
+    flex: 2;
+    padding: 1rem 2rem;
+  }
+  
+  .about-me-text h2 {
+    font-size: 2.5rem;
+    font-family: 'termina', sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .about-me-text h3 {
+    font-size: 2rem;
+    color: #ff3366;
+    margin-bottom: 1rem;
+  }
+  
+  .about-me-text p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 1.5rem;
+
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below the normal position */
+    animation: textReveal 1s ease-out forwards;
+    animation-delay: 0.5s; /* Delay for dramatic effect */
+}
+
+/* Keyframes for text reveal animation */
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Return to original position */
+    }
+}
+
+
+
+
+  .about-me-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .about-me-links a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #ff3366;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .about-me-links a:hover {
+    color: #000;
+    border-bottom: 2px solid #ff3366;
+  }
+  
+  /* Adjust Scrolling Behavior */
+  .second-div {
+    margin-top: 100vh; /* Allow second div to start below first div */
+    z-index: 2;
+  }
+  
+
+
+  .about-me-name {
+    display: flex; /* Enables horizontal layout */
+    align-items: baseline; /* Aligns text properly */
+    gap: 4px; /* Adjust spacing between Atul and Mehta */
+  }
+/* Animation for Name */
+.name-first,
+.name-rest {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.name-rest {
+  width: 0;
+  animation: revealWidth 7s infinite;
+}
+
+.name-rest span {
+  margin-left: -500px;
+  animation: slideIn 7s infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes slideIn {
+  0% { margin-left: -500px; }
+  20% { margin-left: -500px; }
+  35% { margin-left: 0; }
+  100% { margin-left: 0; }
+}
+
+@keyframes revealWidth {
+  0% { opacity: 0; width: 0; }
+  20% { opacity: 1; width: 0; }
+  30% { width: 500px; }
+  80% { opacity: 1; }
+  100% { opacity: 0; width: 500px; }
+}
+
+/* Icons */
+.about-me-links a {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    background: #DB6E82;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    transition: background 0.5s ease;
+  }
+  
+  /* Style the FontAwesomeIcon */
+  .about-me-links a svg {
+    font-size: 20px;
+    color: #fff;
+    transition: color 0.5s ease;
+  }
+  
+  /* Change background and icon color on hover */
+  .about-me-links a:hover {
+    background: #ef92a3;
+  }
+  
+  .about-me-links a:hover svg {
+    color: #000;
+  }
+  
+  /* Pop-up Text */
+  .about-me-links a span {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #666;
+    padding: 5px 7px;
+    font-size: 14px;
+    border-radius: 2px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    white-space: nowrap;
+    z-index: 1;
+  }
+  
+  /* Pop-up Text Arrow */
+  .about-me-links a span:before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #fff;
+  }
+  
+  /* Show Pop-up Text on Hover */
+  .about-me-links a:hover span {
+    visibility: visible;
+    opacity: 1;
+    bottom: 60px;
+  }
+  
+
+
+
+/* For Tablets and Below (max-width: 768px) */
+@media (max-width: 768px) {
+  .about-me-section {
+    flex-direction: column; /* Stack all items vertically */
+    padding: 2rem; /* Add padding for spacing */
+    height: auto; /* Adjust height to content */
+  }
+
+  .about-me-content {
+    flex-direction: column; /* Stack content items vertically */
+    gap: 1rem; /* Space between sections */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text alignment */
+  }
+
+  .about-me-image {
+    max-width: 80%; /* Reduce image width for smaller screens */
+    margin-bottom: 1rem; /* Add spacing below the image */
+  }
+
+  .about-me-text {
+    max-width: 90%; /* Reduce text width */
+    padding: 1rem; /* Add padding for spacing */
+  }
+
+  .about-me-text h2 {
+    font-size: 2rem; /* Adjust heading size */
+  }
+
+  .about-me-text h3 {
+    font-size: 1.8rem; /* Adjust animated text size */
+  }
+
+  .about-me-text p {
+    font-size: 1.2rem; /* Adjust description size */
+    line-height: 1.5; /* Improve readability */
+    margin-bottom: 1.5rem; /* Add spacing below the description */
+  }
+
+  .about-me-links {
+    display: flex;
+    justify-content: center; /* Center logos */
+    gap: 1rem; /* Space between logos */
+    margin-top: 1rem; /* Add spacing above logos */
+  }
+
+  .about-me-links a {
+    width: 35px; /* Smaller logos */
+    height: 35px;
+    line-height: 35px;
+  }
+}
+
+/* For Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .about-me-section {
+    padding: 1rem; /* Compact padding */
+  }
+
+  .about-me-content {
+    gap: 0;
+  }
+
+  .about-me-image {
+    max-width: 70%; /* Full width for image */
+    margin-bottom: 1rem;
+  }
+
+  .about-me-text{
+    padding: 0%;
+  }
+  
+  .about-me-text h2 {
+    font-size: 1.8rem; /* Smaller heading size */
+  }
+
+  .about-me-text h3 {
+    font-size: 1.3rem; /* Adjust animated text size */
+  }
+
+  .about-me-text p {
+    font-size: 1rem; /* Compact text */
+    line-height: 1.4;
+  }
+
+  .about-me-links {
+    gap: 0.5rem; /* Reduce gap between logos */
+    margin-top: 1rem;
+  }
+
+  .about-me-links a {
+    width: 30px; /* Compact logos */
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+
+/* For Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .name-rest {
+    animation: revealWidthTablet 7s infinite; /* Use tablet-specific animation */
+  }
+
+  .name-rest span {
+    margin-left: -300px; /* Adjust margin for smaller screens */
+    animation: slideInTablet 7s infinite;
+  }
+
+  @keyframes revealWidthTablet {
+    0% { opacity: 0; width: 0; }
+    20% { opacity: 1; width: 0; }
+    30% { width: 300px; } /* Reduced width for tablets */
+    80% { opacity: 1; }
+    100% { opacity: 0; width: 300px; }
+  }
+
+  @keyframes slideInTablet {
+    0% { margin-left: -300px; }
+    20% { margin-left: -300px; }
+    35% { margin-left: 0; }
+    100% { margin-left: 0; }
+  }
+}
+
+/* For Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .name-rest {
+    animation: revealWidthMobile 7s infinite; /* Use mobile-specific animation */
+  }
+
+  .name-rest span {
+    margin-left: -100px; /* Adjust margin for mobile screens */
+    animation: slideInMobile 7s infinite;
+  }
+
+  @keyframes revealWidthMobile {
+    0% { opacity: 0; width: 0; }
+    20% { opacity: 1; width: 0; }
+    30% { width: 200px; } /* Reduced width for mobile */
+    80% { opacity: 1; }
+    100% { opacity: 0; width: 200px; }
+  }
+
+  @keyframes slideInMobile {
+    0% { margin-left: -180px; }
+    20% { margin-left: -200px; }
+    35% { margin-left: 0; }
+    100% { margin-left: 0; }
+  }
+}
